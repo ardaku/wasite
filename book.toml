@@ -1,0 +1,6 @@
+[book]
+authors = ["Jeron Aldaron Lau"]
+language = "en"
+multilingual = false
+src = "docs"
+title = "Wasite"
