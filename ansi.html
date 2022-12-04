@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Standard Output - Wasite</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="wasite.html"><strong aria-hidden="true">1.</strong> Wasite</a></li><li class="chapter-item expanded "><a href="env_vars.html"><strong aria-hidden="true">2.</strong> Environment Variables</a></li><li class="chapter-item expanded "><a href="ansi.html" class="active"><strong aria-hidden="true">3.</strong> Standard Output</a></li><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">4.</strong> Standard Input</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Wasite</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="standard-output"><a class="header" href="#standard-output">Standard Output</a></h1>
+<p>Sequences start with the escape character followed by a left bracket <code>\x1B[</code> and
+end with <code>m</code>.  The style options give you 8 colors for both background and
+foreground (bold may not change intensity).  And 4 style attributes (thickness,
+italic, underline, inverted).</p>
+<p>The following ANSI escape sequences must be supported by Wasite-compliant
+terminal emulators:</p>
+<h2 id="x1b0m-since-v010"><a class="header" href="#x1b0m-since-v010"><code>\x1B[0m</code> (Since v0.1.0)</a></h2>
+<p>Disable all style attribute flags (doesn't include colors)</p>
+<h2 id="x1b1m-since-v010"><a class="header" href="#x1b1m-since-v010"><code>\x1B[1m</code> (Since v0.1.0)</a></h2>
+<p>Set thickness style attribute flag to bold</p>
+<h2 id="x1b2m-since-v010"><a class="header" href="#x1b2m-since-v010"><code>\x1B[2m</code> (Since v0.1.0)</a></h2>
+<p>Set thickness style attribute flag to thin</p>
+<h2 id="x1b3m-since-v010"><a class="header" href="#x1b3m-since-v010"><code>\x1B[3m</code> (Since v0.1.0)</a></h2>
+<p>Enable italic style attribute flag</p>
+<h2 id="x1b4m-since-v010"><a class="header" href="#x1b4m-since-v010"><code>\x1B[4m</code> (Since v0.1.0)</a></h2>
+<p>Enable underlined style attribute flag</p>
+<h2 id="x1b7m-since-v010"><a class="header" href="#x1b7m-since-v010"><code>\x1B[7m</code> (Since v0.1.0)</a></h2>
+<p>Enable color inversion style attribute flag</p>
+<hr />
+<h2 id="x1b22m-since-v010"><a class="header" href="#x1b22m-since-v010"><code>\x1B[22m</code> (Since v0.1.0)</a></h2>
+<p>Set thickness style attribute flag to regular</p>
+<h2 id="x1b23m-since-v010"><a class="header" href="#x1b23m-since-v010"><code>\x1B[23m</code> (Since v0.1.0)</a></h2>
+<p>Disable italic style attribute flag</p>
+<h2 id="x1b24m-since-v010"><a class="header" href="#x1b24m-since-v010"><code>\x1B[24m</code> (Since v0.1.0)</a></h2>
+<p>Disable underlined style attribute flag</p>
+<h2 id="x1b27m-since-v010"><a class="header" href="#x1b27m-since-v010"><code>\x1B[27m</code> (Since v0.1.0)</a></h2>
+<p>Disable color inversion style attribute flag</p>
+<hr />
+<h2 id="x1b30m-since-v010"><a class="header" href="#x1b30m-since-v010"><code>\x1B[30m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to black</p>
+<h2 id="x1b31m-since-v010"><a class="header" href="#x1b31m-since-v010"><code>\x1B[31m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to red</p>
+<h2 id="x1b32m-since-v010"><a class="header" href="#x1b32m-since-v010"><code>\x1B[32m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to green</p>
+<h2 id="x1b33m-since-v010"><a class="header" href="#x1b33m-since-v010"><code>\x1B[33m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to yellow</p>
+<h2 id="x1b34m-since-v010"><a class="header" href="#x1b34m-since-v010"><code>\x1B[34m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to blue</p>
+<h2 id="x1b35m-since-v010"><a class="header" href="#x1b35m-since-v010"><code>\x1B[35m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to magenta</p>
+<h2 id="x1b36m-since-v010"><a class="header" href="#x1b36m-since-v010"><code>\x1B[36m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to cyan</p>
+<h2 id="x1b37m-since-v010"><a class="header" href="#x1b37m-since-v010"><code>\x1B[37m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to white</p>
+<h2 id="x1b385nm-since-v010"><a class="header" href="#x1b385nm-since-v010"><code>\x1B[38;5;nm</code> (Since v0.1.0)</a></h2>
+<p>Set foreground to <code>n</code> from
+<a href="https://www.ditig.com/256-colors-cheat-sheet">Color table</a>.</p>
+<h2 id="x1b382rgbm-since-v010"><a class="header" href="#x1b382rgbm-since-v010"><code>\x1B[38;2;r;g;bm</code> (Since v0.1.0)</a></h2>
+<p>Set 24-bit foreground color to <code>r</code>, <code>g</code>, <code>b</code> (decimal 0-255)</p>
+<h2 id="x1b39m-since-v010"><a class="header" href="#x1b39m-since-v010"><code>\x1B[39m</code> (Since v0.1.0)</a></h2>
+<p>Reset foreground color to default</p>
+<hr />
+<h2 id="x1b40m-since-v010"><a class="header" href="#x1b40m-since-v010"><code>\x1B[40m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to black</p>
+<h2 id="x1b41m-since-v010"><a class="header" href="#x1b41m-since-v010"><code>\x1B[41m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to red</p>
+<h2 id="x1b42m-since-v010"><a class="header" href="#x1b42m-since-v010"><code>\x1B[42m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to green</p>
+<h2 id="x1b43m-since-v010"><a class="header" href="#x1b43m-since-v010"><code>\x1B[43m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to yellow</p>
+<h2 id="x1b44m-since-v010"><a class="header" href="#x1b44m-since-v010"><code>\x1B[44m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to blue</p>
+<h2 id="x1b45m-since-v010"><a class="header" href="#x1b45m-since-v010"><code>\x1B[45m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to magenta</p>
+<h2 id="x1b46m-since-v010"><a class="header" href="#x1b46m-since-v010"><code>\x1B[46m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to cyan</p>
+<h2 id="x1b47m-since-v010"><a class="header" href="#x1b47m-since-v010"><code>\x1B[47m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to white</p>
+<h2 id="x1b485nm-since-v010"><a class="header" href="#x1b485nm-since-v010"><code>\x1B[48;5;nm</code> (Since v0.1.0)</a></h2>
+<p>Set background to <code>n</code> from
+<a href="https://www.ditig.com/256-colors-cheat-sheet">Color table</a>.</p>
+<h2 id="x1b482rgbm-since-v010"><a class="header" href="#x1b482rgbm-since-v010"><code>\x1B[48;2;r;g;bm</code> (Since v0.1.0)</a></h2>
+<p>Set 24-bit background color to <code>r</code>, <code>g</code>, <code>b</code> (decimal 0-255)</p>
+<h2 id="x1b49m-since-v010"><a class="header" href="#x1b49m-since-v010"><code>\x1B[49m</code> (Since v0.1.0)</a></h2>
+<p>Reset background color to default</p>
+<hr />
+<h2 id="x1b90m-since-v010"><a class="header" href="#x1b90m-since-v010"><code>\x1B[90m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to bright black</p>
+<h2 id="x1b91m-since-v010"><a class="header" href="#x1b91m-since-v010"><code>\x1B[91m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to bright red</p>
+<h2 id="x1b92m-since-v010"><a class="header" href="#x1b92m-since-v010"><code>\x1B[92m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to bright green</p>
+<h2 id="x1b93m-since-v010"><a class="header" href="#x1b93m-since-v010"><code>\x1B[93m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to bright yellow</p>
+<h2 id="x1b94m-since-v010"><a class="header" href="#x1b94m-since-v010"><code>\x1B[94m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to bright blue</p>
+<h2 id="x1b95m-since-v010"><a class="header" href="#x1b95m-since-v010"><code>\x1B[95m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to bright magenta</p>
+<h2 id="x1b96m-since-v010"><a class="header" href="#x1b96m-since-v010"><code>\x1B[96m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to bright cyan</p>
+<h2 id="x1b97m-since-v010"><a class="header" href="#x1b97m-since-v010"><code>\x1B[97m</code> (Since v0.1.0)</a></h2>
+<p>Set foreground color to bright white</p>
+<hr />
+<h2 id="x1b100m-since-v010"><a class="header" href="#x1b100m-since-v010"><code>\x1B[100m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to bright black</p>
+<h2 id="x1b101m-since-v010"><a class="header" href="#x1b101m-since-v010"><code>\x1B[101m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to bright red</p>
+<h2 id="x1b102m-since-v010"><a class="header" href="#x1b102m-since-v010"><code>\x1B[102m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to bright green</p>
+<h2 id="x1b103m-since-v010"><a class="header" href="#x1b103m-since-v010"><code>\x1B[103m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to bright yellow</p>
+<h2 id="x1b104m-since-v010"><a class="header" href="#x1b104m-since-v010"><code>\x1B[104m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to bright blue</p>
+<h2 id="x1b105m-since-v010"><a class="header" href="#x1b105m-since-v010"><code>\x1B[105m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to bright magenta</p>
+<h2 id="x1b106m-since-v010"><a class="header" href="#x1b106m-since-v010"><code>\x1B[106m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to bright cyan</p>
+<h2 id="x1b107m-since-v010"><a class="header" href="#x1b107m-since-v010"><code>\x1B[107m</code> (Since v0.1.0)</a></h2>
+<p>Set background color to bright white</p>
+<hr />
+<h1 id="unicode-special-codepoints"><a class="header" href="#unicode-special-codepoints">Unicode special codepoints</a></h1>
+<h2 id="nul-x00-since-v010"><a class="header" href="#nul-x00-since-v010">NUL <code>\x00</code> (Since v0.1.0)</a></h2>
+<p>Clear screen</p>
+<h2 id="bel-x07-since-v010"><a class="header" href="#bel-x07-since-v010">BEL <code>\x07</code> (Since v0.1.0)</a></h2>
+<p>Visual alert</p>
+<h2 id="bs-x08-since-v010"><a class="header" href="#bs-x08-since-v010">BS <code>\x08</code> (Since v0.1.0)</a></h2>
+<p>Move cursor back one column</p>
+<h2 id="tab-x09-since-v010"><a class="header" href="#tab-x09-since-v010">TAB <code>\x09</code> (Since v0.1.0)</a></h2>
+<p>Move cursor to the next tab stop (always every 8 columns)</p>
+<h2 id="lf-x0a-since-v010"><a class="header" href="#lf-x0a-since-v010">LF <code>\x0A</code> (Since v0.1.0)</a></h2>
+<p>Clear until end of line, move cursor to the beginning of the next line</p>
+<h2 id="vt-x0b-since-v010"><a class="header" href="#vt-x0b-since-v010">VT <code>\x0B</code> (Since v0.1.0)</a></h2>
+<p>Move cursor to the beginning of the next line without clearing</p>
+<h2 id="ff-x0c-since-v010"><a class="header" href="#ff-x0c-since-v010">FF <code>\x0C</code> (Since v0.1.0)</a></h2>
+<p>Move cursor to next line, keeping same column</p>
+<h2 id="cr-x0d-since-v010"><a class="header" href="#cr-x0d-since-v010">CR <code>\x0D</code> (Since v0.1.0)</a></h2>
+<p>Return cursor to start of line</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="env_vars.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="input.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="env_vars.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="input.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
