@@ -33,7 +33,7 @@ pub type Result<T = (), E = Error> = core::result::Result<T, E>;
 
 /// A Wasite Error
 #[derive(Debug)]
-pub struct Error(#[allow(dead_code)] wasip2::io::streams::StreamError);
+pub struct Error(#[allow(dead_code)] wasi::io::streams::StreamError);
 
 /// The language preferences of the [`User`]
 #[derive(Debug)]
@@ -159,7 +159,7 @@ pub fn environment() -> Environment {
         },
     };
 
-    for (key, value) in wasip2::cli::environment::get_environment() {
+    for (key, value) in wasi::cli::environment::get_environment() {
         match key.as_str() {
             "USER" => env.user.username = value,
             "HOSTNAME" => env.host.hostname = value,
@@ -175,14 +175,14 @@ pub fn environment() -> Environment {
 
 /// Get terminal state
 pub fn state() -> Result<State> {
-    let err = Err(Error(wasip2::io::streams::StreamError::Closed));
-    let stdout = wasip2::cli::stdout::get_stdout();
+    let err = Err(Error(wasi::io::streams::StreamError::Closed));
+    let stdout = wasi::cli::stdout::get_stdout();
 
     stdout.blocking_flush().map_err(Error)?;
     stdout.write(b"\x05").map_err(Error)?;
 
     // enquiry mode
-    let stdin = wasip2::cli::stdin::get_stdin();
+    let stdin = wasi::cli::stdin::get_stdin();
     let bytes = stdin.read(24).map_err(Error)?;
     let string = String::from_utf8_lossy(&bytes);
     let mut parts = string.split(';');
@@ -250,7 +250,7 @@ pub enum Command<'a> {
 
 /// Execute terminal commands
 pub fn execute(commands: &[Command<'_>]) -> Result {
-    let stdout = wasip2::cli::stdout::get_stdout();
+    let stdout = wasi::cli::stdout::get_stdout();
 
     stdout.blocking_flush().map_err(Error)?;
 

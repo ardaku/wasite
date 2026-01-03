@@ -1,6 +1,6 @@
 [package]
 name = "wasite"
-version = "1.0.0"
+version = "1.0.1"
 license = "Apache-2.0 OR BSL-1.0 OR MIT"
 description = "WASI Terminal Environment API"
 repository = "https://github.com/ardaku/wasite"
@@ -19,8 +19,8 @@ readme = "README.md"
 edition = "2021"
 rust-version = "1.65"
 
-[dependencies.wasip2]
-version = "1.0.1"
+[dependencies.wasi]
+version = "0.14.0"
 default-features = false
 
 [workspace]
