@@ -1,6 +1,6 @@
 [package]
 name = "wasite"
-version = "0.1.0"
+version = "1.0.0"
 license = "Apache-2.0 OR BSL-1.0 OR MIT"
 description = "WASI Terminal Environment API"
 repository = "https://github.com/ardaku/wasite"
@@ -11,10 +11,18 @@ keywords = ["wasi", "terminal", "extension", "env", "interactive"]
 categories = [
   "api-bindings",
   "command-line-interface",
-  "internationalization",
+  "no-std",
   "os",
   "wasm",
 ]
 readme = "README.md"
-edition = "2018"
-rust-version = "1.40"
+edition = "2021"
+rust-version = "1.65"
+
+[dependencies.wasip2]
+version = "1.0.1"
+default-features = false
+
+[workspace]
+default-members = ["."]
+members = ["compile", "emulator", "."]

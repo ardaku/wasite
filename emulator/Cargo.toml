@@ -1,0 +1,9 @@
+[package]
+name = "emulator"
+version = "0.1.0"
+authors = ["Jeron Aldaron Lau <aldaronlau@gmail.com>"]
+edition = "2021"
+
+[dependencies]
+wasmi = "0.31"
+wasmi_wasi = "0.31"
