@@ -116,7 +116,7 @@ pub struct Environment {
 }
 
 /// Dimensions of the terminal of [`State`]
-#[derive(Debug)]
+#[derive(Copy, Clone, Debug)]
 #[non_exhaustive]
 pub struct Dimensions {
     /// Width of the terminal
@@ -126,7 +126,7 @@ pub struct Dimensions {
 }
 
 /// Position of cursor of [`State`]
-#[derive(Debug)]
+#[derive(Copy, Clone, Debug)]
 #[non_exhaustive]
 pub struct Cursor {
     /// Column of the cursor
@@ -136,7 +136,7 @@ pub struct Cursor {
 }
 
 /// Terminal state
-#[derive(Debug)]
+#[derive(Copy, Clone, Debug)]
 #[non_exhaustive]
 pub struct State {
     /// Dimensions of the terminal
